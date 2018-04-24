@@ -1,8 +1,8 @@
-======================
-Cookiecutter with Pipenv
-======================
+================================================
+Cookiecutter Python Package Template with Pipenv
+================================================
 
-Cookiecutter_ template for a Python package using Pipenv_.
+Cookiecutter_ template for a Python package with Pipenv_.
 
 * GitHub repo: https://github.com/elgertam/cookiecutter-pipenv/
 * Documentation: https://cookiecutter-pipenv.readthedocs.io/
@@ -41,15 +41,23 @@ Cookiecutter 1.4.0 or higher)::
 
     pip install -U cookiecutter
 
-Generate a Python package project::
+Install the latest Pipenv::
+
+    pip install -U pipenv
+
+Generate a Python project that uses Pipenv::
 
     cookiecutter gh:elgertam/cookiecutter-pipenv
+
+Once your project has been created, change directories::
+
+    cd <project-name>
 
 Then:
 
 * Create a repo and put it there.
-* Add the repo to your Travis-CI_ account.
 * Install the dev requirements into a virtualenv. (``pipenv install --dev``)
+* Add the repo to your Travis-CI_ account.
 * Register_ your project with PyPI.
 * Run the Travis CLI command `travis encrypt --add deploy.password` to encrypt your PyPI password in Travis config
   and activate automated deployment on PyPI when you push a new tag to master branch.
