@@ -30,7 +30,7 @@ Features
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _Pipenv: https://docs.pipenv.org/
-.. _Pipfile:
+.. _Pipfile: https://github.com/pypa/pipfile
 .. _tutorial: https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies
 
 Quickstart
