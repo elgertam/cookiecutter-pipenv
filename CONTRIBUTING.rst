@@ -69,7 +69,7 @@ you already have `Pipenv` and `Git` installed and ready to go.
 
   .. code-block:: bash
 
-    $ Pipenv install
+    $ pipenv install
 
 4. Create a branch for local development::
 

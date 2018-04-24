@@ -55,8 +55,8 @@ Once your project has been created, change directories::
 
 Then:
 
-* Create a repo and put it there.
-* Install the dev requirements into a virtualenv. (``pipenv install --dev``)
+* Create a repo and put it there (e.g. ``git init``).
+* Install the dev requirements into a virtualenv (``pipenv install --dev``).
 * Add the repo to your Travis-CI_ account.
 * Register_ your project with PyPI.
 * Run the Travis CLI command `travis encrypt --add deploy.password` to encrypt your PyPI password in Travis config
@@ -70,7 +70,7 @@ Then:
 Fork This / Create Your Own
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This project itself is a fork of Audrey Roy Greenfield's exceptional
+This project itself is a fork of Audrey Roy Greenfeld's exceptional
 cookiecutter-pypackage_. If you have differences in your preferred setup, I
 encourage you to fork this to create your own version. Or create your own;
 it doesn't strictly have to be a fork.

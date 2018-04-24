@@ -19,7 +19,8 @@ To use the console script in development:
 
 .. code-block:: bash
 
-    pip install -e projectdir
+    $ cd projectdir
+    $ pipenv install -e .
 
 'projectdir' should be the top level project directory with the setup.py file
 
@@ -34,15 +35,15 @@ Installing the project in a development environment using:
 
 .. code-block:: bash
 
-    python setup.py develop
+    $ python setup.py develop
 
 will not set up the entry point correctly. This is a known issue with Click.
 The following will work as expected:
 
 .. code-block:: bash
 
-    python setup.py install
-    pip install mypackage
+    $ python setup.py install
+    $ pip install mypackage
 
 With 'mypackage' adjusted to the specific project.
 

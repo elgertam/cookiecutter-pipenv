@@ -8,7 +8,7 @@ Before Your First Release
 
     .. code-block:: bash
 
-        python setup.py register
+        $ python setup.py register
 
 #. Visit PyPI to make sure it registered.
 
@@ -21,49 +21,42 @@ For Every Release
 
     .. code-block:: bash
 
-        git add HISTORY.rst
-        git commit -m "Changelog for upcoming release 0.1.1."
+        $ git add HISTORY.rst
+        $ git commit -m "Changelog for upcoming release 0.1.1."
 
 #. Update version number (can also be patch or major)
 
     .. code-block:: bash
 
-        bumpversion minor
+        $ bumpversion minor
 
 #. Install the package again for local development, but with the new version number:
 
     .. code-block:: bash
 
-        python setup.py develop
+        $ pipenv install -e .
 
 #. Run the tests:
 
     .. code-block:: bash
 
-        tox
+        $ tox
 
 #. Push the commit:
 
     .. code-block:: bash
 
-        git push
+        $ git push
 
 #. Push the tags, creating the new release on both GitHub and PyPI:
 
     .. code-block:: bash
 
-        git push --tags
+        $ git push --tags
 
 #. Check the PyPI listing page to make sure that the README, release notes, and roadmap display properly. If not, try one of these:
 
     #. Copy and paste the RestructuredText into http://rst.ninjs.org/ to find out what broke the formatting.
-
-    #. Check your long_description locally:
-
-        .. code-block:: bash
-
-            pip install readme_renderer
-            python setup.py check -r -s
 
 #. Edit the release on GitHub (e.g. https://github.com/audreyr/cookiecutter/releases). Paste the release notes into the release's release page, and come up with a title for the release.
 

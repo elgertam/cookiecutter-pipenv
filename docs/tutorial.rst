@@ -13,35 +13,72 @@ To start with, you will need a `GitHub account`_ and an account on `PyPI`_. Crea
 .. _`GitHub Help`: https://help.github.com/
 
 
-Step 1: Install Cookiecutter
-----------------------------
+Step 0: Install pipsi (Recommended)
+-----------------------------------
 
-First, you need to create and activate a virtualenv for the package project. Use your favorite method, or create a virtualenv for your new package like this:
-
-.. code-block:: bash
-
-    virtualenv ~/.virtualenvs/mypackage
-
-Here, ``mypackage`` is the name of the package that you'll create.
-
-Activate your environment:
+Pipsi_ is `Armin Ronacher's`_ "pip script installer"; it installs Python scripts into their own virtualenvs that pipsi itself manages. Pipsi is useful for tools like Ansible, Pygments or Cookiecutter that run as first-class executables on your system.
 
 .. code-block:: bash
 
-    source bin/activate
+    $ curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
 
-On Windows, activate it like this. You may find that using a Command Prompt window works better than gitbash.
+When initially installing pipsi, I ran into some Python 3 compatibility issues, and so created my own installer.
+
+.. code-block:: bash
+
+    $ curl https://gist.githubusercontent.com/elgertam/2d50ea280d2395dd2bbedbb169c59d2e/raw/0bba09f4ced1d702654fe51d5db75133a34749ef/install_pipsi.sh | bash
+
+.. _`Armin Ronacher's`: http://lucumr.pocoo.org/
+
+
+Step 1: Install Cookiecutter and Pipenv
+---------------------------------------
+
+Assuming you installed Pipsi without an issue, install Cookiecutter and Pipenv.
+
+.. code-block:: bash
+
+    $ pipsi install cookiecutter
+    $ pipsi install pipenv
+
+If you were not able to install pipsi in step 0, install Cookiecutter to your global site-packages or a virtualenv. We'll use the latter. If you are stuck using Python 2, be sure to first ``pip install -U virtualenv`` and then use ``virtualenv`` in place of ``python -m venv``.
+
+.. code-block:: bash
+
+    $ mkdir -p ~/.local/venvs/
+    $ python -m venv ~/.local/venvs/cookiecutter
+
+Activate the virtualenv and install cookiecutter.
+
+.. code-block:: bash
+
+    $ source ~/.local/venvs/cookiecutter/bin/activate
+    $ pip install -U cookiecutter
+
+Now you can use Cookiecutter from ``~/.local/venvs/cookiecutter/bin/cookiecutter``.
+
+.. code-block:: bash
+
+    $ ~/.local/venvs/cookiecutter/bin/cookiecutter --version
+    Cookiecutter 1.6.0 from /home/user/.local/venvs/cookiecutter-test/lib/python3.6/site-packages (Python 3.6)
+
+Follow similar steps for Pipenv.
+
+.. code-block:: bash
+
+    $ mkdir -p ~/.local/venvs/
+    $ python -m venv ~/.local/venvs/pipenv
+    $ source ~/.local/venvs/pipenv/bin/activate
+    $ pip install -U pipenv
+    ...
+    $ ~/.local/venvs/pipenv/bin/pipenv--version
+    pipenv, version 11.10.0
+
+On Windows, activate it like this. You may find that using a Command Prompt window works better than gitbash/mingw64 bash.
 
 .. code-block:: powershell
 
     > \path\to\env\Scripts\activate
-
-
-Install cookiecutter:
-
-.. code-block:: bash
-
-    pip install cookiecutter
 
 
 Step 2: Generate Your Package
@@ -53,7 +90,7 @@ Use cookiecutter, pointing it at the cookiecutter-pypackage repo:
 
 .. code-block:: bash
 
-    cookiecutter https://github.com/elgertam/cookiecutter-pipenv.git
+    $ cookiecutter https://github.com/elgertam/cookiecutter-pipenv.git
 
 You'll be asked to enter a bunch of values to set the package up.
 If you don't know what to enter, stick with the defaults.
@@ -70,12 +107,12 @@ You will find one folder named after the ``[project_slug]``. Move into this fold
 
 .. code-block:: bash
 
-    cd mypackage
-    git init .
-    git add .
-    git commit -m "Initial skeleton."
-    git remote add origin git@github.com:myusername/mypackage.git
-    git push -u origin master
+    $ cd mypackage
+    $ git init .
+    $ git add .
+    $ git commit -m "Initial skeleton."
+    $ git remote add origin git@github.com:myusername/mypackage.git
+    $ git push -u origin master
 
 Where ``myusername`` and ``mypackage`` are adjusted for your username and package name.
 
@@ -88,13 +125,11 @@ You'll need a ssh key to push the repo. You can `Generate`_ a key or `Add`_ an e
 Step 4: Install Dev Requirements
 --------------------------------
 
-You should still be in the folder containing the ``requirements_dev.txt`` file.
-
-Your virtualenv should still be activated. If it isn't, activate it now. Install the new project's local development requirements:
+You should still be in the folder containing the ``Pipfile`` file.
 
 .. code-block:: bash
 
-    pip install -r requirements_dev.txt
+    $ pipenv install --dev
 
 
 Step 5: Set Up Travis CI
@@ -110,7 +145,7 @@ In your terminal, your virtualenv should still be activated. If it isn't, activa
 
 .. code-block:: bash
 
-    travis encrypt --add deploy.password
+    $ travis encrypt --add deploy.password
 
 This will:
 
@@ -160,7 +195,7 @@ Step 8: Release on PyPI
 
 The Python Package Index or `PyPI`_ is the official third-party software repository for the Python programming language. Python developers intend it to be a comprehensive catalog of all open source Python packages.
 
-When you are ready, release your package the standard Python way.
+When you are ready, release your package the standard Python way. (Hint: if you'd like to add documentation for this to the tutorial, I'd welcome a PR.)
 
 See `PyPI Help`_ for more information about submitting a package.
 
@@ -176,3 +211,4 @@ Having problems?
 Visit our :ref:`troubleshooting` page for help. If that doesn't help, go to our `Issues`_ page and create a new Issue. Be sure to give as much information as possible.
 
 .. _`Issues`: https://github.com/elgertam/cookiecutter-pipenv/issues
+.. _Pipsi: https://github.com/mitsuhiko/pipsi
