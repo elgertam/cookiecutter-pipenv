@@ -88,4 +88,4 @@ I will consider pull requests as they come in, if they enhance the overall packa
 .. _ReadTheDocs: https://readthedocs.io/
 .. _`pyup.io`: https://pyup.io/
 .. _Bumpversion: https://github.com/peritus/bumpversion
-.. _PyPi: https://pypi.python.org/pypi
+.. _PyPi: https://pypi.org/
