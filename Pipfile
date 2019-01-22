@@ -9,14 +9,11 @@ name = "pypi"
 [dev-packages]
 pytest = "*"
 tox = "*"
-cryptography = "*"
 cookiecutter = "*"
 pytest-cookies = "*"
-watchdog = "*"
 alabaster = "*"
 PyYAML = "*"
 requests = "*"
-urllib3 = "*"
 
 [requires]
 python_version = "3.6"
