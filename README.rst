@@ -2,6 +2,12 @@
 Cookiecutter Python Package Template with Pipenv
 ================================================
 
+|travis|
+
+.. |travis| image:: https://travis-ci.com/elgertam/cookiecutter-pipenv.svg?branch=master
+    :target: https://travis-ci.com/elgertam/cookiecutter-pipenv
+
+
 Cookiecutter_ template for a Python package with Pipenv_.
 
 * GitHub repo: https://github.com/elgertam/cookiecutter-pipenv/
