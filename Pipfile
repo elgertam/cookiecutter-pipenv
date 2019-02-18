@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"e1839a8" = {path = ".", editable = true}
+e1839a8 = {path = ".",editable = true}
 
 [dev-packages]
 pytest = "*"
@@ -17,3 +17,6 @@ requests = ">=2.20.0"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
