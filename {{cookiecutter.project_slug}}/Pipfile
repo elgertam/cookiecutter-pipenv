@@ -20,6 +20,7 @@ Sphinx = "*"
 twine = "*"
 
 [packages]
+"deadbee" = {path = ".", editable = true}
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 click = "*"
 {%- endif %}
