@@ -1,12 +1,13 @@
 # Config file for automatic testing at travis-ci.org
 
 language: python
+dist: xenial
 python:
-  - 3.6
-  - 3.5
-  - 3.4
-  - 2.7
-  - pypy
+  - "3.7"
+  - "3.6"
+  - "3.5"
+  - "2.7"
+  - "pypy"
 # pypy3.5 is currently not supported as mentioned here https://github.com/pypa/pipenv/issues/3313
 #  - pypy3.5
 
@@ -15,15 +16,3 @@ install: pip install -U tox-travis
 
 # command to run tests, e.g. python setup.py test
 script: tox
-
-# deploy new versions to PyPI
-deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: audreyr
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: audreyr/python_boilerplate
-    python: 2.7
