@@ -18,6 +18,7 @@ PyInstaller = "*"
 {%- endif %}
 Sphinx = "*"
 twine = "*"
+cryptography = "*"
 
 [packages]
 {{ cookiecutter.project_slug }} = {path = ".", editable = true}

@@ -8,20 +8,32 @@ from __future__ import print_function
 import base64
 import json
 import os
-from getpass import getpass
 import yaml
+
+from getpass import getpass
 from cryptography.hazmat.primitives.serialization import load_pem_public_key
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric.padding import PKCS1v15
+from yaml.resolver import Resolver
 
 
 try:
-    from urllib import urlopen
-except:
-    from urllib.request import urlopen
+    from urllib2 import urlopen, Request
+except ImportError:
+    from urllib.request import urlopen, Request
 
 
-GITHUB_REPO = '{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}'
+# Fix pyyaml to not parse 'on' and 'off' keys as bool
+for ch in "OoYyNn":
+    if len(Resolver.yaml_implicit_resolvers[ch]) == 1:
+        del Resolver.yaml_implicit_resolvers[ch]
+    else:
+        Resolver.yaml_implicit_resolvers[ch] \
+            = [x for x in Resolver.yaml_implicit_resolvers[ch]
+               if x[0] != 'tag:yaml.org,2002:bool']
+
+
+GITHUB_REPO = 'elgertam/cookiepress'
 TRAVIS_CONFIG_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), '.travis.yml')
 
@@ -49,7 +61,7 @@ def encrypt(pubkey, password):
     """
     key = load_key(pubkey)
     encrypted_password = key.encrypt(password, PKCS1v15())
-    return base64.b64encode(encrypted_password)
+    return base64.b64encode(encrypted_password).decode('utf-8')
 
 
 def fetch_public_key(repo):
@@ -58,7 +70,8 @@ def fetch_public_key(repo):
     Travis API docs: http://docs.travis-ci.com/api/#repository-keys
     """
     keyurl = 'https://api.travis-ci.org/repos/{0}/key'.format(repo)
-    data = json.loads(urlopen(keyurl).read().decode())
+    # data = json.loads(urlopen(keyurl).read().decode())
+    data = json.loads(urlopen(Request(keyurl, headers={'Accept': 'application/vnd.travis-ci.2.1+json'})).read().decode())
     if 'key' not in data:
         errmsg = "Could not find public key for repo: {}.\n".format(repo)
         errmsg += "Have you already added your GitHub repo to Travis?"
@@ -85,7 +98,7 @@ def load_yaml_config(filepath):
 
 def save_yaml_config(filepath, config):
     with open(filepath, 'w') as f:
-        yaml.dump(config, f, default_flow_style=False)
+        yaml.dump(config, f, default_flow_style=False, sort_keys=False)
 
 
 def update_travis_deploy_password(encrypted_password):

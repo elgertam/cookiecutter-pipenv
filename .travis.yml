@@ -7,7 +7,8 @@ python:
   - "3.6"
   - "3.5"
   - "2.7"
-  - "pypy"
+# pypy is currently not supported due to problems with installing `cryptography`
+#   - "pypy"
 # pypy3.5 is currently not supported as mentioned here https://github.com/pypa/pipenv/issues/3313
 #  - pypy3.5
 
