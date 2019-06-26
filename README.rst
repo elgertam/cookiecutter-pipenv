@@ -2,10 +2,13 @@
 Cookiecutter Python Package Template with Pipenv
 ================================================
 
-|travis|
+|travis| |donate|
 
-.. |travis| image:: https://travis-ci.com/elgertam/cookiecutter-pipenv.svg?branch=master
+.. |travis| image:: https://img.shields.io/travis/com/elgertam/cookiecutter-pipenv.svg
     :target: https://travis-ci.com/elgertam/cookiecutter-pipenv
+
+.. |donate| image:: https://img.shields.io/badge/donate-PayPal-blue.svg?logo=paypal
+    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=CPTWMKWMVXDQW&currency_code=USD&source=url
 
 
 Cookiecutter_ template for a Python package with Pipenv_.
