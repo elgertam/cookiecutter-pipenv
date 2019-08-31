@@ -1,10 +1,7 @@
 [[source]]
-url = "https://pypi.python.org/simple"
-verify_ssl = true
 name = "pypi"
-
-[packages]
-cookiecutter-pipenv = {path = ".", editable = true}
+url = "https://pypi.org/simple"
+verify_ssl = true
 
 [dev-packages]
 pytest = "*"
@@ -18,6 +15,9 @@ Jinja2 = ">=2.10.1"
 urllib3 = ">=1.24.2"
 pytest-runner = "*"
 flake8 = "*"
+
+[packages]
+cookiecutter-pipenv = {path = ".", editable = true}
 
 [requires]
 python_version = "3.7"
