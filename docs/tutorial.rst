@@ -9,7 +9,7 @@ Tutorial
 To start with, you will need a `GitHub account`_ and an account on `PyPI`_. Create these before you get started on this tutorial. If you are new to Git and GitHub, you should probably spend a few minutes on some of the tutorials at the top of the page at `GitHub Help`_.
 
 .. _`GitHub account`: https://github.com/
-.. _`PyPI`: https://pypi.python.org/pypi
+.. _`PyPI`: https://pypi.org/
 .. _`GitHub Help`: https://help.github.com/
 
 
@@ -201,7 +201,7 @@ See `PyPI Help`_ for more information about submitting a package.
 
 Here's a release checklist you can use: https://gist.github.com/audreyr/5990987
 
-.. _`PyPI`: https://pypi.python.org/pypi
+.. _`PyPI`: https://pypi.org/
 .. _`PyPI Help`: http://peterdowns.com/posts/first-time-with-pypi.html
 
 
