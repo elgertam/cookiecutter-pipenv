@@ -74,7 +74,7 @@ Then:
 * Release your package by pushing a new tag to master.
 * Activate your project on `pyup.io`_.
 
-.. _Register: https://packaging.python.org/tutorials/packaging-projects/#register-your-project
+.. _Register: https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives
 
 Fork This / Create Your Own
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
