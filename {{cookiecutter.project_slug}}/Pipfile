@@ -10,6 +10,7 @@ watchdog = "*"
 flake8 = "*"
 tox = "*"
 coverage = "*"
+mypy = "*"
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest = "*"
 pytest-runner = "*"
@@ -17,12 +18,10 @@ pytest-runner = "*"
 {%- if 'no' not in cookiecutter.command_line_interface|lower %}
 PyInstaller = "*"
 {%- endif %}
-Sphinx = "*"
 twine = "*"
-cryptography = "*"
 
 [packages]
-{{ cookiecutter.project_slug }} = {path = ".", editable = true}
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
-click = "*"
-{%- endif %}
+{{ cookiecutter.project_slug }} = {path = ".",editable = true}
+
+[requires]
+python_version > "3.7"
