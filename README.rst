@@ -32,9 +32,16 @@ Cookiecutter 1.4.0 or higher)::
 
     pip install -U cookiecutter
 
-Install the latest Pipenv::
+Install the latest Poetry, [here](https://python-poetry.org/docs/) ::
 
-    pip install -U pipenv
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+or you can install it using pyenv::
+
+    cd ~
+    pyenv shell 3.10.4
+    pip3 install poetry==1.1.12
+    pyenv shell --unset
 
 Generate a Python project that uses Pipenv::
 
