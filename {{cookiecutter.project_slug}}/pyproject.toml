@@ -1,6 +1,96 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
+[tool.poetry]
+name = "{{cookiecutter.application_name}}"
+description = "pyproject template"
+authors = ["Derek Lyu"]
+
+
+[tool.poetry.dependencies]
+python = "^3.8.10"
+
+# These are only needed during development
+flake8 = { version = "*", optional = true }
+flake8-formatter-junit-xml = { version = "*", optional = true }
+pytest = { version = "*", optional = true }
+mypy = { version = "*", optional = true }
+coverage = { version = "*", optional = true }
+pytest-cov = { version = "*", optional = true }
+autopep8 = { version = "*", optional = true }
+isort = { version = "*", optional = true }
+flake8-isort = { version = "*", optional = true }
+types-dataclasses = { version = "*", optional = true }
+types-requests = { version = "*", optional = true }
+types-python-dateutil = { version = "*", optional = true }
+types-pkg_resources = { version = "*", optional = true }
+types-PyYAML = { version = "*", optional = true }
+
+[tool.poetry.extras]
+dev = [
+    "flake8",
+    "flake8-formatter-junit-xml",
+    "pytest",
+    "mypy",
+    "coverage",
+    "pytest-cov",
+    "autopep8",
+    "isort",
+    "flake8-isort",
+    "types-dataclasses",
+    "types-requests",
+    "types-python-dateutil",
+    "types-pkg_resources",
+    "types-PyYAML",
 ]
-build-backend = "setuptools.build_meta"
+
+[tool.poetry.dev-dependencies]
+# Dev dependencies are used to overwrite configuration of local dependencies to be editable
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+line_length = 99
+# The from-style imports should wrap if they import more than one thing.
+force_grid_wrap = 2
+multi_line_output = 3
+# Seems like this detects our first party modules just fine.
+src_paths = "src/python"
+# These are special cases we want to treat as first party.
+known_first_party = ["{{cookiecutter.project_name}}"]
+
+[tool.mypy]
+namespace_packages = true
+mypy_path = "src/python/:test/python/"
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+# Disabling this check, it fails if we subclass untyped classes (luigi.Task)
+disallow_subclassing_any = false
+warn_no_return = true
+strict_optional = true
+strict_equality = true
+no_implicit_optional = true
+disallow_any_generics = true
+disallow_any_unimported = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+show_traceback = true
+show_error_codes = true
+show_column_numbers = true
+
+[[tool.mypy.overrides]]
+module = "azure.storage.*"
+ignore_errors = true
+
+
+[[tool.mypy.overrides]]
+module = "pulumi_azure_native.*"
+ignore_missing_imports = true
+follow_imports = "skip"
+
+[tool.pytest.ini_options]
+cache_dir = "../.tmp/{{cookiecutter.application_name}}/.pytest_cache"
+testpaths = ["test/python"]
