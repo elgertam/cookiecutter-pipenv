@@ -1,30 +1,14 @@
 ================================================
-Cookiecutter Python Package Template with Pipenv
+Cookiecutter Python Package Template with Poetry
 ================================================
 
-|travis| |donate|
 
-.. |travis| image:: https://img.shields.io/travis/com/elgertam/cookiecutter-pipenv.svg
-    :target: https://travis-ci.com/elgertam/cookiecutter-pipenv
-
-.. |donate| image:: https://img.shields.io/badge/donate-PayPal-blue.svg?logo=paypal
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=CPTWMKWMVXDQW&currency_code=USD&source=url
+Cookiecutter_ template for a Python package with Poetry.
 
 
-Cookiecutter_ template for a Python package with Pipenv_.
-
-* GitHub repo: https://github.com/elgertam/cookiecutter-pipenv/
-* Documentation: https://cookiecutter-pipenv.readthedocs.io/
-* Free software: BSD license
-
-Why Pipenv?
+Why Poetry?
 -----------
-
-Packaging in Python can be a pain, but it doesn't need to be. The new Pipenv project
-has rapidly improved packaging in Python by tackling two related problems: automatic
-package dependency management and virtualenv management. Pipenv uses the new Pipfile_
-format that is the endorsed replacement for `requirements.txt`. Pipenv is the future of
-Python package management, and is even recommended to newcomers in the Python tutorial_.
+Poetry is way faster and the eco system for packaing is way easier using `Poetry`.
 
 Features
 --------
@@ -38,8 +22,6 @@ Features
 * Command line interface using Click (optional)
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _Pipenv: https://docs.pipenv.org/
-.. _Pipfile: https://github.com/pypa/pipfile
 .. _tutorial: https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies
 
 Quickstart
