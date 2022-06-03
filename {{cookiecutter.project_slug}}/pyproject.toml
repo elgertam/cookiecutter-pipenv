@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{cookiecutter.application_name}}"
+name = "{{cookiecutter.project_name}}"
 description = "pyproject template"
 authors = ["Derek Lyu"]
 
@@ -92,5 +92,5 @@ ignore_missing_imports = true
 follow_imports = "skip"
 
 [tool.pytest.ini_options]
-cache_dir = "../.tmp/{{cookiecutter.application_name}}/.pytest_cache"
+cache_dir = ".tmp/{{cookiecutter.project_name}}/.pytest_cache"
 testpaths = ["test/python"]
